@@ -1,0 +1,12 @@
+---
+creation_rules:
+  - path_regex: provision/.*\.sops\.ya?ml
+    unencrypted_regex: "^(kind)$"
+    key_groups:
+      - age:
+          - age1ugl6vh0z58frzaywfxxy9p2586q98gkdk3u4d4dyf0j4yawzn90q4aps7p
+  - path_regex: cluster/.*\.sops\.ya?ml
+    encrypted_regex: "^(data|stringData)$"
+    key_groups:
+      - age:
+          - age1ugl6vh0z58frzaywfxxy9p2586q98gkdk3u4d4dyf0j4yawzn90q4aps7p
