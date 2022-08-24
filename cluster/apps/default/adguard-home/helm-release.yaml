@@ -43,9 +43,9 @@ spec:
           #traefik.ingress.kubernetes.io/router.middlewares: networking-oauth@kubernetescrd
         hosts:
           - host: "adguard.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
+            #paths:
+            #  - path: /
+            #    pathType: Prefix
         tls:
           - hosts:
               - "adguard.${SECRET_DOMAIN}"
