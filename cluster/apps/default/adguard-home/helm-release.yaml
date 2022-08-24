@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: adguard-home
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: adguard-home
+      version: 5.5.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      interval: 5m
+  values:
+    service:
+      dns-tcp:
+        type: LoadBalancer
+        loadBalancerIP: ${CONFIG_LB_IP_ADGUARD_HOME}
+        annotations:
+          metallb.universe.tf/allow-shared-ip: adguard
+      dns-udp:
+        type: LoadBalancer
+        loadBalancerIP: ${CONFIG_LB_IP_ADGUARD_HOME}
+        annotations:
+          metallb.universe.tf/allow-shared-ip: adguard
+    env:
+      TZ: ${CONFIG_TIMEZONE}
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "weather-sunset"
+          #traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          #traefik.ingress.kubernetes.io/router.middlewares: networking-oauth@kubernetescrd
+        hosts:
+          - host: "adguard.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "adguard.${SECRET_DOMAIN}"
+            secretName: "adguard-tls"
+    persistence:
+      config:
+        enabled: true
+        mountPath: /opt/adguardhome/conf
+        accessMode: ReadWriteOnce
+        size: 200Mi
+      data:
+        enabled: true
+        mountPath: /opt/adguardhome/work
+        accessMode: ReadWriteOnce
+        size: 1Gi
+    podAnnotations:
+      backup.velero.io/backup-volumes: data,config
