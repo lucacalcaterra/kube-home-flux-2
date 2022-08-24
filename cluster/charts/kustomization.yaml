@@ -8,7 +8,8 @@ resources:
   - ingress-nginx.yaml
   - jetstack.yaml
   - k8s-gateway.yaml
-  #- metallb.yaml
+  - metallb.yaml
   - metrics-server.yaml
+  - openebs
   - stakater.yaml
   - weaveworks-kured.yaml
