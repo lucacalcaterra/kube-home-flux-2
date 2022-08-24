@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-minio
+spec:
+  storageClassName: nfs-omv
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: "${CONFIG_NFS_SERVER_ADDRESS}"
+    path: "/minio"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-minio
+  namespace: minio
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-omv
+  resources:
+    requests:
+      storage: 10Gi

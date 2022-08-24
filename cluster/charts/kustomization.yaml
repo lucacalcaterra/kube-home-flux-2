@@ -10,6 +10,7 @@ resources:
   - k8s-gateway.yaml
   - metallb.yaml
   - metrics-server.yaml
+  - minio.yaml
   - openebs.yaml
   - stakater.yaml
   - weaveworks-kured.yaml
