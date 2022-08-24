@@ -31,11 +31,11 @@ spec:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         hajimari.io/enable: "true"
         hajimari.io/icon: "weather-sunset"
-      hosts:
-        - host: "auth.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              pathType: Prefix
+      # hosts:
+      #   - host: "auth.${SECRET_DOMAIN}"
+      #     paths:
+      #       - path: /
+      #         pathType: Prefix
       tls:
         - hosts:
             - "oauth2.${SECRET_DOMAIN}"
