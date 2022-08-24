@@ -24,21 +24,23 @@ spec:
     remediation:
       retries: 5
   values:
-    enabled: true
-    ingressClassName: "nginx"
-    annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt-production"
-      hajimari.io/enable: "true"
-      hajimari.io/icon: "weather-sunset"
-    hosts:
-      - host: "oauth2.${SECRET_DOMAIN}"
-        paths:
-          - path: /
-            pathType: Prefix
-    tls:
-      - hosts:
-          - "oauth2.${SECRET_DOMAIN}"
-        secretName: "oauth2-tls"
+    ingress:
+      enabled: true
+      ingressClassName: "nginx"
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "weather-sunset"
+      hosts:
+        - host: "oauth2.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - "oauth2.${SECRET_DOMAIN}"
+          secretName: "oauth2-tls"
+
     config:
       clientID: ${SECRET_GOOGLEOAUTH2_CLIENT_ID}
       clientSecret: ${SECRET_GOOGLEOAUTH2_CLIENT_SECRET}
