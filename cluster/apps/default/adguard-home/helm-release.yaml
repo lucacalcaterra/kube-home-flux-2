@@ -38,8 +38,10 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
-          nginx.ingress.kubernetes.io/auth-url: "https://oauth2.${SECRET_DOMAIN}/oauth2/auth"
-          nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=$escaped_request_uri"
+          nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
+          nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
+          #nginx.ingress.kubernetes.io/auth-url: "https://oauth2.${SECRET_DOMAIN}/oauth2/auth"
+          #nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=$escaped_request_uri"
           #traefik.ingress.kubernetes.io/router.middlewares: networking-oauth@kubernetescrd
         hosts:
           - host: "adguard.${SECRET_DOMAIN}"
