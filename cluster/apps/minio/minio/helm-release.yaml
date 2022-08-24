@@ -34,8 +34,10 @@ spec:
         #traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         #traefik.ingress.kubernetes.io/router.middlewares: networking-oauth@kubernetescrd
       hosts:
-        - "minio-console.${SECRET_DOMAIN}"
-
+        - host: "minio-console.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: Prefix
       tls:
         - hosts:
             - "minio-console.${SECRET_DOMAIN}"
@@ -50,7 +52,10 @@ spec:
         #traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         #traefik.ingress.kubernetes.io/router.middlewares: networking-oauth@kubernetescrd
       hosts:
-        - "minio.${SECRET_DOMAIN}"
+        - host: "minio.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: Prefix
 
       tls:
         - hosts:
