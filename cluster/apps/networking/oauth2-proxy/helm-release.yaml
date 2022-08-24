@@ -39,3 +39,6 @@ spec:
       - hosts:
           - "oauth2.${SECRET_DOMAIN}"
         secretName: "oauth2-tls"
+    config:
+      clientID: ${SECRET_GOOGLEOAUTH2_CLIENT_ID}
+      clientSecret: ${SECRET_GOOGLEOAUTH2_CLIENT_SECRET}
