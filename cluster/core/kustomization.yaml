@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - openebs
   - cluster-issuers
+  - storage-classes.yaml
