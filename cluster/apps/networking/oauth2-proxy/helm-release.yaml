@@ -10,10 +10,10 @@ spec:
     spec:
       # renovate: registryUrl=https://oauth2-proxy.github.io/manifests
       chart: oauth2-proxy
-      version: 6.2.1
+      version: 3.2.1
       sourceRef:
         kind: HelmRepository
-        name: oauth2-proxy
+        name: bitnami
         namespace: flux-system
       interval: 15m
   install:
@@ -41,6 +41,8 @@ spec:
             - "oauth2.${SECRET_DOMAIN}"
           secretName: "oauth2-tls"
 
-    config:
+    configuration:
       clientID: ${SECRET_GOOGLEOAUTH2_CLIENT_ID}
       clientSecret: ${SECRET_GOOGLEOAUTH2_CLIENT_SECRET}
+      google:
+        enabled: "true"
