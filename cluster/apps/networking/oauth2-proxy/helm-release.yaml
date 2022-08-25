@@ -45,4 +45,5 @@ spec:
       clientID: ${SECRET_GOOGLEOAUTH2_CLIENT_ID}
       clientSecret: ${SECRET_GOOGLEOAUTH2_CLIENT_SECRET}
       cookieSecret: "MnlHaGY1dEh3aStmUUdsNDRRTzNiZz09"
-    #extraArgs:
+    extraArgs:
+      cookie-secure: false
