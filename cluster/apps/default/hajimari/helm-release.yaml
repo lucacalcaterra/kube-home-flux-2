@@ -118,11 +118,11 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-                backend:
-                  service:
-                    name: hajimari
-                    port:
-                      number: 3000
+                # backend:
+                #   service:
+                #     name: hajimari
+                #     port:
+                #       number: 3000
         tls:
           - hosts:
               - "hajimari.${SECRET_DOMAIN}"
