@@ -45,4 +45,4 @@ spec:
       clientID: ${SECRET_GOOGLEOAUTH2_CLIENT_ID}
       clientSecret: ${SECRET_GOOGLEOAUTH2_CLIENT_SECRET}
       google:
-        enabled: "true"
+        enabled: false
