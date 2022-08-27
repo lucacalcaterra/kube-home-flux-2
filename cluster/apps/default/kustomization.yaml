@@ -8,5 +8,5 @@ resources:
   - hajimari
   - mosquitto
   - openhab
-  - sincthing
+  - syncthing
   - volumes
