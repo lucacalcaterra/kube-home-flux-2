@@ -1,0 +1,88 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: openhab
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: openhab
+      version: 1.5.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      tag: 3.2.0
+    # openhab:
+    #service:
+    #main:
+    #type: LoadBalancer
+    #loadBalancerIP: ${CONFIG_LB_IP_OPENHAB}
+    persistence:
+      data:
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        persistentVolumeReclaimPolicy: Retain
+    env:
+      TZ: ${CONFIG_TIMEZONE}
+      EXTRA_JAVA_OPTS: -Duser.timezone=${CONFIG_TIMEZONE}
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "weather-sunset"
+        hosts:
+          - host: "openhab.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "openhab.${SECRET_DOMAIN}"
+            secretName: "openhab-tls"
+    # addons vs code
+    addons:
+      codeserver:
+        enabled: true
+        image:
+          repository: codercom/code-server
+          #tag: 4.6.0
+        workingDir: "/config"
+        args:
+          - --auth
+          - "none"
+          - --user-data-dir
+          - "/config/.vscode"
+          - --extensions-dir
+          - "/config/.vscode"
+        ingress:
+          enabled: true
+          ingressClassName: "nginx"
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-production"
+            hajimari.io/enable: "true"
+            hajimari.io/icon: "weather-sunset"
+          hosts:
+            - host: "openhab-code.${SECRET_DOMAIN}"
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls:
+            - hosts:
+                - "openhab-code.${SECRET_DOMAIN}"
+              secretName: "openhab-code-tls"
+        volumeMounts:
+          - name: data
+            mountPath: /config
+    podAnnotations:
+      backup.velero.io/backup-volumes: data
