@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://oauth2-proxy.github.io/manifests
       chart: oauth2-proxy
-      version: 6.2.3
+      version: 6.2.4
       sourceRef:
         kind: HelmRepository
         name: oauth2-proxy
@@ -33,9 +33,6 @@ spec:
         hajimari.io/icon: "weather-sunset"
       hosts:
         - "oauth2.${SECRET_DOMAIN}"
-      # paths:
-      #   - path: /
-      #     pathType: Prefix
       tls:
         - hosts:
             - "oauth2.${SECRET_DOMAIN}"
@@ -44,7 +41,12 @@ spec:
     config:
       clientID: ${SECRET_GOOGLEOAUTH2_CLIENT_ID}
       clientSecret: ${SECRET_GOOGLEOAUTH2_CLIENT_SECRET}
-      cookieSecret: "aUxaSlpmbURkSXZmSnUzV3RNT2wwNzVOQUkzWHh3bSs="
+      cookieSecret: ${SECRET_GOOGLEOAUTH2_COOKIE_SECRET}
     extraArgs:
-      cookie-secure: "true"
-      cookie-domain: "${SECRET_DOMAIN}"
+      #cookie-secure: "true"
+      cookie-domain: ".${SECRET_DOMAIN}"
+      whitelist-domain: ".${SECRET_DOMAIN}"
+      email-domain: "*"
+      provider: "google"
+      pass-access-token: true
+      set-xauthrequest: true
