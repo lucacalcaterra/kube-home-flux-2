@@ -6,4 +6,5 @@ resources:
   - adguard-home
   - echo-server
   - hajimari
+  - mosquitto
   - volumes
