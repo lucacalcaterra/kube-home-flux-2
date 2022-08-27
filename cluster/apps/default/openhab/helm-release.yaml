@@ -41,6 +41,12 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
+          # type of authentication
+          nginx.ingress.kubernetes.io/auth-type: basic
+          # name of the secret that contains the user/password definitions
+          nginx.ingress.kubernetes.io/auth-secret: ${SECRET_OPENHAB_BASICAUTH}
+          # message to display with an appropriate context why the authentication is required
+          nginx.ingress.kubernetes.io/auth-realm: "Autenticazione richiesta"
         hosts:
           - host: "openhab.${SECRET_DOMAIN}"
             paths:
