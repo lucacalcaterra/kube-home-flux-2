@@ -8,4 +8,5 @@ resources:
   - hajimari
   - mosquitto
   - openhab
+  - sincthing
   - volumes
