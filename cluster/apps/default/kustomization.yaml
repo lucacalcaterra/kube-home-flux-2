@@ -6,8 +6,8 @@ resources:
   - adguard-home
   - echo-server
   - hajimari
+  - jellyfin
   - mosquitto
-  - openhab
   - openhab
   - syncthing
   - volumes
