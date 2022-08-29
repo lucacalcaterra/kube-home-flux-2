@@ -50,5 +50,5 @@ spec:
       whitelist-domain: ".${SECRET_DOMAIN}"
       email-domain: "*"
       provider: "google"
-      pass-access-token: true
+      #pass-access-token: true
       set-xauthrequest: true
