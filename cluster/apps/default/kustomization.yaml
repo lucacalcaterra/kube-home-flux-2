@@ -9,5 +9,6 @@ resources:
   - jellyfin
   - mosquitto
   - openhab
+  - photoprism
   - syncthing
   - volumes
