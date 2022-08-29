@@ -59,11 +59,11 @@ spec:
             proxy_set_header Authorization          "";
             satisfy                                 any;
           # type of authentication
-          #nginx.ingress.kubernetes.io/auth-type: basic
+          nginx.ingress.kubernetes.io/auth-type: basic
           # name of the secret that contains the user/password definitions
-          #nginx.ingress.kubernetes.io/auth-secret: basic-auth
+          nginx.ingress.kubernetes.io/auth-secret: basic-auth
           # message to display with an appropriate context why the authentication is required
-          #nginx.ingress.kubernetes.io/auth-realm: "Autenticazione richiesta"
+          nginx.ingress.kubernetes.io/auth-realm: "Autenticazione richiesta"
         hosts:
           - host: "openhab.${SECRET_DOMAIN}"
             paths:

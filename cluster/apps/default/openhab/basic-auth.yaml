@@ -1,0 +1,7 @@
+apiVersion: v1
+child: Secret
+type: Opaque
+metadata:
+  name: basic-auth
+date:
+  auth: ${BOOTSTRAP_OPENHAB_BASICAUTH}
