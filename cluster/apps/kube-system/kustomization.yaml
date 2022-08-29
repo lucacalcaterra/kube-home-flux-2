@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - cert-manager
+  - intel-gpu-plugin
   # - kured
   - metrics-server
   - reloader
