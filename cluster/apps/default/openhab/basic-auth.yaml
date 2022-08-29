@@ -5,4 +5,4 @@ metadata:
   name: basic-auth
   namespace: default
 data:
-  auth: ${BOOTSTRAP_OPENHAB_BASICAUTH}
+  auth: ${SECRET_OPENHAB_BASICAUTH}
