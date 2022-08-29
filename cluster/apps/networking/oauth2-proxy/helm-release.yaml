@@ -44,11 +44,11 @@ spec:
       cookieSecret: ${SECRET_GOOGLEOAUTH2_COOKIE_SECRET}
     alphaConfig:
       enabled: true
-    extraArgs:
-      #cookie-secure: "true"
-      cookie-domain: ".${SECRET_DOMAIN}"
-      whitelist-domain: ".${SECRET_DOMAIN}"
-      email-domain: "*"
-      provider: "google"
-      #pass-access-token: true
-      set-xauthrequest: true
+    # extraArgs:
+    #   #cookie-secure: "true"
+    #   cookie-domain: ".${SECRET_DOMAIN}"
+    #   whitelist-domain: ".${SECRET_DOMAIN}"
+    #   email-domain: "*"
+    #   provider: "google"
+    #   #pass-access-token: true
+    #   set-xauthrequest: true
