@@ -95,6 +95,8 @@ spec:
             cert-manager.io/cluster-issuer: "letsencrypt-production"
             hajimari.io/enable: "true"
             hajimari.io/icon: "weather-sunset"
+          nginx.ingress.kubernetes.io/auth-signin: http://oauth2.${SECRET_DOMAIN}/oauth2/start
+          nginx.ingress.kubernetes.io/auth-url: http://oauth2-proxy.networking.svc.cluster.local/oauth2/auth
           hosts:
             - host: "openhab-code.${SECRET_DOMAIN}"
               paths:
