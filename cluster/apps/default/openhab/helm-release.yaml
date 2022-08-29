@@ -41,6 +41,16 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
+          # custom nginx config
+          nginx.org/server-snippets: |
+            proxy_set_header Host                   $http_host;
+            proxy_set_header X-Real-IP              $remote_addr;
+            proxy_set_header X-Forwarded-For        $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto      $scheme;
+            proxy_set_header Upgrade                $http_upgrade;
+            proxy_set_header Connection             "Upgrade";
+            proxy_set_header Authorization          "";
+            satisfy                                 any;
           # type of authentication
           #nginx.ingress.kubernetes.io/auth-type: basic
           # name of the secret that contains the user/password definitions
