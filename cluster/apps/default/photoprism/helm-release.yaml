@@ -31,9 +31,6 @@ spec:
       #PHOTOPRISM_JPEG_SIZE: 720
       #PHOTOPRISM_JPEG_QUALITY: 80
 
-    mariadb:
-      enabled: true
-
     ingress:
       main:
         enabled: true
@@ -61,6 +58,13 @@ spec:
       originals:
         enabled: true
         existingClaim: "nfs-archivio-personale"
+
+    # mariadb
+    mariadb:
+      enabled: true
+      primary:
+        persistence:
+          enabled: true
     podAnnotations:
       backup.velero.io/backup-volumes: config
     resources:
