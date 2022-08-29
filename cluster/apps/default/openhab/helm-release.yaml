@@ -42,6 +42,13 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
           # custom nginx config
+          nginx.ingress.kubernetes.io/enable-cors: "true"
+          nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+          nginx.ingress.kubernetes.io/cors-allow-headers: "Authorization,Accept,Origin,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range"
+          nginx.ingress.kubernetes.io/cors-allow-methods: "GET,POST,OPTIONS,PUT,DELETE,PATCH"
+
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            more_set_headers "Set-Cookie X-OPENHAB-AUTH-HEADER=1";
           nginx.org/server-snippets: |
             proxy_set_header Host                   $http_host;
             proxy_set_header X-Real-IP              $remote_addr;
