@@ -3,5 +3,6 @@ child: Secret
 type: Opaque
 metadata:
   name: basic-auth
-date:
+  namespace: default
+data:
   auth: ${BOOTSTRAP_OPENHAB_BASICAUTH}
