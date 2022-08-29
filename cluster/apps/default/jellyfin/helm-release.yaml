@@ -22,12 +22,12 @@ spec:
     ingress:
       main:
         enabled: true
-        #ingressClassName: "nginx"
+        ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           hajimari.io/icon: "file-video"
-          àtraefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         hosts:
           - host: "jellyfin.${SECRET_DOMAIN}"
             paths:
