@@ -42,6 +42,8 @@ spec:
       clientID: ${SECRET_GOOGLEOAUTH2_CLIENT_ID}
       clientSecret: ${SECRET_GOOGLEOAUTH2_CLIENT_SECRET}
       cookieSecret: ${SECRET_GOOGLEOAUTH2_COOKIE_SECRET}
+    alphaConfig:
+      enabled: true
     extraArgs:
       #cookie-secure: "true"
       cookie-domain: ".${SECRET_DOMAIN}"
