@@ -19,11 +19,10 @@ spec:
   values:
     image:
       tag: 3.2.0
-    # openhab:
-    #service:
-    #main:
-    #type: LoadBalancer
-    #loadBalancerIP: ${CONFIG_LB_IP_OPENHAB}
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${CONFIG_LB_IP_OPENHAB}
     persistence:
       data:
         enabled: true
