@@ -9,4 +9,5 @@ resources:
   - metallb
   - k8s-gateway
   - oauth2-proxy
+  - wg-access-server
   - wireguard
