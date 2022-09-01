@@ -23,15 +23,10 @@ spec:
   #   remediation:
   #     retries: 5
   values:
-    env:
-      TZ: ${CONFIG_TIMEZONE}
-    # web:
-    #   config:
-    #     adminUsername: ${SECRET_WG_ACCESS_SERVER_ADMIN_USER}
-    #     adminPassword: ${SECRET_WG_ACCESS_SERVER_ADMIN_PASSWORD}
-    # wireguard:
-    #   config:
-    #     privateKey: ${SECRET_WG_ACCESS_SERVER_PRIV_KEY}
+    TZ: ${CONFIG_TIMEZONE}
+    secretEnv:
+      PASSWORD: ${SECRET_WG_ACCESS_SERVER_ADMIN_PASSWORD}
+
     ingress:
       main:
         enabled: true
@@ -44,11 +39,11 @@ spec:
           #nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=https://$host"
           #nginx.ingress.kubernetes.io/auth-url: "https://oauth2.${SECRET_DOMAIN}/oauth2/auth"
         hosts:
-          - host: "wg.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
+          - host: "wg-easy.${SECRET_DOMAIN}"
+            #paths:
+            #  - path: /
+            #    pathType: Prefix
         tls:
           - hosts:
-              - "wg.${SECRET_DOMAIN}"
+              - "wg-easy.${SECRET_DOMAIN}"
             secretName: "wg-easy-tls"
