@@ -15,6 +15,7 @@ resources:
   - oauth2-proxy.yaml
   - openebs.yaml
   - stakater.yaml
+  - truecharts.yaml
   - velero.yaml
   - weaveworks-kured.yaml
   - wg-access-server.yaml
