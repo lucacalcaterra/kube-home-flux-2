@@ -27,7 +27,10 @@ spec:
       TZ: ${CONFIG_TIMEZONE}
     secretEnv:
       PASSWORD: ${SECRET_WG_ACCESS_SERVER_ADMIN_PASSWORD}
-
+    service:
+      vpn:
+        type: LoadBalancer
+        loadBalancerIP: ${CONFIG_LB_IP_WG_EASY}
     ingress:
       main:
         enabled: true
