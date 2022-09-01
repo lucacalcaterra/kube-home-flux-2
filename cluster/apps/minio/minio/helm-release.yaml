@@ -16,6 +16,13 @@ spec:
         name: minio
         namespace: flux-system
       interval: 5m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
   values:
     mode: standalone
     rootUser: "admin"
