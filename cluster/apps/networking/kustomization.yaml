@@ -11,4 +11,4 @@ resources:
   - oauth2-proxy
   #- wg-access-server
   - wg-easy
-  - wireguard
+  #- wireguard
