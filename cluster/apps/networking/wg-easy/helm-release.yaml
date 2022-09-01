@@ -25,15 +25,13 @@ spec:
   values:
     env:
       TZ: ${CONFIG_TIMEZONE}
-    web:
-      config:
-        adminUsername: ${SECRET_WG_ACCESS_SERVER_ADMIN_USER}
-        adminPassword: ${SECRET_WG_ACCESS_SERVER_ADMIN_PASSWORD}
-    wireguard:
-      config:
-        privateKey: ${SECRET_WG_ACCESS_SERVER_PRIV_KEY}
-    persistence:
-      enabled: "true"
+    # web:
+    #   config:
+    #     adminUsername: ${SECRET_WG_ACCESS_SERVER_ADMIN_USER}
+    #     adminPassword: ${SECRET_WG_ACCESS_SERVER_ADMIN_PASSWORD}
+    # wireguard:
+    #   config:
+    #     privateKey: ${SECRET_WG_ACCESS_SERVER_PRIV_KEY}
     ingress:
       main:
         enabled: true
