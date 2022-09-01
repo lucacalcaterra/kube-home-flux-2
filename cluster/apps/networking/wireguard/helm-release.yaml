@@ -22,4 +22,10 @@ spec:
   upgrade:
     remediation:
       retries: 5
-  #values:
+  values:
+    env:
+      TZ: ${CONFIG_TIMEZONE}
+    persistence:
+      enabled: true
+    configSecret:
+      enabled: true
