@@ -59,6 +59,6 @@ spec:
       existingClaim: "nfs-minio"
       # size:
     # resources
-    # resources:
-    #   requests:
-    #     memory:
+    resources:
+      requests:
+        memory:
