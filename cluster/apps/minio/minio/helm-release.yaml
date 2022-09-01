@@ -68,4 +68,4 @@ spec:
     # resources
     resources:
       requests:
-        memory:
+        memory: 1Gi
