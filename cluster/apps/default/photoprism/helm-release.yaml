@@ -63,9 +63,12 @@ spec:
     mariadb:
       enabled: true
       primary:
-        backup.velero.io/backup-volumes: config
         persistence:
           enabled: true
+          # for db
+      podAnnotations:
+        backup.velero.io/backup-volumes: DATA
+    # for config
     podAnnotations:
       backup.velero.io/backup-volumes: config
     resources:
