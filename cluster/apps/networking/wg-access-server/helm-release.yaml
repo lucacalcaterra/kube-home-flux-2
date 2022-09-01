@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://oauth2-proxy.github.io/manifests
       chart: wg-access-server
-      version: 0.4.7
+      version: v0.4.6
       sourceRef:
         kind: HelmRepository
         name: wg-access-server
