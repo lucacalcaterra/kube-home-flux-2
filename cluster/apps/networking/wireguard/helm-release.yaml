@@ -29,3 +29,4 @@ spec:
     #  enabled: true
     configSecret:
       enabled: true
+      config: ${SECRET_WIREGUARD_CONFIG}
