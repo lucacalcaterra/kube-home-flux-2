@@ -34,3 +34,11 @@ spec:
         privateKey: ${SECRET_WG_ACCESS_SERVER_PRIV_KEY}
     persistence:
       enabled: "true"
+    ingress:
+      enabled: true
+      hosts:
+        - host: adguard.${SECRET_DOMAIN}
+      tls:
+        - hosts:
+            - host: adguard.${SECRET_DOMAIN}
+          secretName: "tls-wg-access-server"
