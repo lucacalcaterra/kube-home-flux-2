@@ -23,7 +23,8 @@ spec:
   #   remediation:
   #     retries: 5
   values:
-    TZ: ${CONFIG_TIMEZONE}
+    env:
+      TZ: ${CONFIG_TIMEZONE}
     secretEnv:
       PASSWORD: ${SECRET_WG_ACCESS_SERVER_ADMIN_PASSWORD}
 
