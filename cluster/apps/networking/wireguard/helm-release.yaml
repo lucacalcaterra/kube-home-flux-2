@@ -25,7 +25,7 @@ spec:
   values:
     env:
       TZ: ${CONFIG_TIMEZONE}
-    persistence:
-      enabled: true
+    #persistence:
+    #  enabled: true
     configSecret:
       enabled: true
