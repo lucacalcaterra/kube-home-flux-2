@@ -30,3 +30,6 @@ spec:
     configSecret:
       enabled: true
       config: ${SECRET_WIREGUARD_CONFIG}
+    ingress:
+      main:
+        enabled: true
