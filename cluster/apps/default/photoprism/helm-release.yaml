@@ -16,6 +16,9 @@ spec:
         name: k8s-at-home
         namespace: flux-system
       interval: 5m
+  dependsOn:
+    - name: mariadb
+      namespace: default
   values:
     env:
       TZ: ${CONFIG_TIMEZONE}
@@ -23,6 +26,10 @@ spec:
       GUID: 1000
       #PHOTOPRISM_WORKERS: 2
       PHOTOPRISM_DATABASE_DRIVER: mysql
+      PHOTOPRISM_DATABASE_SERVER: "mariadb"
+      PHOTOPRISM_DATABASE_NAME: photoprism
+      PHOTOPRISM_DATABASE_USER: root
+      PHOTOPRISM_DATABASE_PASSWORD: ${SECRET_MARIADB_ROOT_PASSWORD}
       #oauth middleware
       PHOTOPRISM_PUBLIC: true
       #PHOTOPRISM_THUMB_UNCACHED: true
@@ -59,15 +66,6 @@ spec:
         enabled: true
         existingClaim: "nfs-archivio-personale"
 
-    # mariadb
-    mariadb:
-      enabled: true
-      primary:
-        # for db
-        podAnnotations:
-          backup.velero.io/backup-volumes: data
-        persistence:
-          enabled: true
     # for config
     podAnnotations:
       backup.velero.io/backup-volumes: config
