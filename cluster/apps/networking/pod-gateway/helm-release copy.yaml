@@ -1,0 +1,79 @@
+# HelmRelease.yaml
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vpn-gateway
+  namespace: networking
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: pod-gateway
+      version: 5.6.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+
+  # See https://github.com/k8s-at-home/charts/blob/master/charts/pod-gateway/values.yaml
+  values:
+    routed_namespaces:
+      - vpn
+
+    settings:
+      VPN_BLOCK_OTHER_TRAFFIC: true
+      NOT_ROUTED_TO_GATEWAY_CIDRS: "10.0.0.0/8 172.24.1.0/24"
+      VPN_LOCAL_CIDRS: "10.0.0.0/8 172.24.1.0/24"
+      VPN_TRAFFIC_PORT: 1194
+      #VXLAN_IP_NETWORK: "192.168.242.0/24"
+
+      # to expose ports
+    publicPorts:
+      - hostname: qbittorrent #hostname assigned to the pod
+        IP: 10 # must be an integer between 2 and VXLAN_GATEWAY_FIRST_DYNAMIC_IP (20 by default)
+        ports:
+          #- type: udp
+          #  port: 18289
+          - type: tcp
+            port: 6881
+
+    addons:
+      vpn:
+        enabled: true
+        # You might use `openvpn` or `wireguard`
+        type: openvpn
+        networkPolicy:
+          enabled: true
+          egress:
+            # Allow only VPN traffic to Internet
+            - to:
+                - ipBlock:
+                    cidr: 0.0.0.0/0
+              ports:
+                # VPN traffic (default OpenVPN)
+                - port: 1194
+                  protocol: UDP
+            # Allow any traffic within k8s
+            - to:
+                - ipBlock:
+                    # Cluster IPs (default k3s)
+                    cidr: 10.0.0.0/8
+        # VPN settings stored in secret `vpnConfig`. The secret mus have a key
+        # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
+        configFileSecret: vpn-config
+        openvpn:
+          authSecret: vpn-auth
+
+        scripts:
+          up: |-
+            #!/bin/bash
+            /etc/openvpn/up.sh
+            echo "connected" > /shared/vpnstatus
+
+          down: |-
+            #!/bin/bash
+            /etc/openvpn/down.sh
+            echo "disconnected" > /shared/vpnstatus
