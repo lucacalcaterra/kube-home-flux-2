@@ -44,7 +44,7 @@ spec:
       vpn:
         enabled: true
         # You might use `openvpn` or `wireguard`
-        type: openvpn
+        type: wireguard
         networkPolicy:
           enabled: true
           egress:
@@ -63,6 +63,14 @@ spec:
                     cidr: 10.0.0.0/8
         # VPN settings stored in secret `vpnConfig`. The secret mus have a key
         # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
-        configFileSecret: vpn-config
-        openvpn:
-          authSecret: wireguard-client-conf
+        configFileSecret: wireguard-client-conf
+        #openvpn:
+        #  authSecret:
+        scripts:
+          up: |-
+            #!/bin/bash
+            echo "connected" > /shared/vpnstatus
+
+          down: |-
+            #!/bin/bash
+            echo "disconnected" > /shared/vpnstatus
