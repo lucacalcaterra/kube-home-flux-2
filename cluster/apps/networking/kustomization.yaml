@@ -9,6 +9,7 @@ resources:
   - metallb
   - k8s-gateway
   - oauth2-proxy
+  - pod-gateway
   #- wg-access-server
   - wg-easy
   #- wireguard
