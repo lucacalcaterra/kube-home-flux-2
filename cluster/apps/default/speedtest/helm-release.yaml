@@ -41,5 +41,5 @@ spec:
                 pathType: Prefix
         tls:
           - hosts:
-              - "hajimari.${SECRET_DOMAIN}"
+              - "speedtest.${SECRET_DOMAIN}"
             secretName: "speedtest-tls"
