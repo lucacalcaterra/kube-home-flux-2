@@ -19,6 +19,8 @@ spec:
   values:
     env:
       TZ: ${CONFIG_TIMEZONE}
+    auth:
+      rootPassword: ${SECRET_MARIADB_ROOT_PASSWORD}
     persistence:
       primary:
         enabled: true
