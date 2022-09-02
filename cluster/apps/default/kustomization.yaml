@@ -11,5 +11,6 @@ resources:
   - mosquitto
   - openhab
   - photoprism
+  - phpmyadmin
   - syncthing
   - volumes
