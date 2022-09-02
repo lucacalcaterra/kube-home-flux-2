@@ -46,3 +46,6 @@ spec:
           - hosts:
               - "openspeedtest.${SECRET_DOMAIN}"
             secretName: "openspeedtest-tls"
+    service:
+      main:
+        type: "LoadBalancer"
