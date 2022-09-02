@@ -23,6 +23,8 @@ spec:
     remediation:
       retries: 5
   values:
+    influxdb:
+      enabled: false
     ingress:
       main:
         enabled: true
