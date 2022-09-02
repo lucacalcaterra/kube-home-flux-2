@@ -12,6 +12,6 @@ resources:
   - openhab
   - photoprism
   - phpmyadmin
-  - librespeed
+  - openspeedtest
   - syncthing
   - volumes
