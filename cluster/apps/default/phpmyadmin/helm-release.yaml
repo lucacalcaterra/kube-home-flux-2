@@ -33,12 +33,10 @@ spec:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=https://$host"
         nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.networking.svc.cluster.local/oauth2/auth"
-      hosts:
-        - host: "phpmyadmin.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - "phpmyadmin.${SECRET_DOMAIN}"
-          secretName: "phpmyadmin-tls"
+      hostname: "phpmyadmin.${SECRET_DOMAIN}"
+      path: /
+      pathType: Prefix
+      tls: true
+      #- hosts:
+      #    - "phpmyadmin.${SECRET_DOMAIN}"
+      #  secretName: "phpmyadmin-tls"
