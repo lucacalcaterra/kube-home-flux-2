@@ -23,6 +23,9 @@ spec:
     remediation:
       retries: 5
   values:
+    db:
+      allowArbitraryServer: false
+      host: "mariadb"
     ingress:
       enabled: true
       ingressClassName: "nginx"
