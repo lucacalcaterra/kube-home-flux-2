@@ -63,7 +63,7 @@ spec:
                     cidr: 10.0.0.0/8
         # VPN settings stored in secret `vpnConfig`. The secret mus have a key
         # a key called `vpnConfigfile` with the openvpn/wireguard config files in them
-        configFileSecret: wg-conf
+        configFileSecret: wireguard-client-conf
         #openvpn:
         #  authSecret:
         scripts:
