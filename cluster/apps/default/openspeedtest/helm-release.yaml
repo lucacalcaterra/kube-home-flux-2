@@ -34,7 +34,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
           nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-          nginx.org/client-max-body-size: "20M"
+          nginx.ingress.kubernetes.io/proxy-body-size: "200m"
           #nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start"
           #nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.networking.svc.cluster.local/oauth2/auth"
         hosts:
