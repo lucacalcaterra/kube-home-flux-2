@@ -44,7 +44,7 @@ spec:
         client-header-timeout: 120
         client-body-buffer-size: "100M"
         client-body-timeout: 120
-        client_max_body_size: 20M
+        client_max_body_size: "20M"
         #proxy-buffers-number: 8
         proxy-buffer-size: "16k"
         custom-http-errors: |-
