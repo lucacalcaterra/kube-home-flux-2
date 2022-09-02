@@ -18,4 +18,3 @@ resources:
   - truecharts.yaml
   - velero.yaml
   - weaveworks-kured.yaml
-  - wg-access-server.yaml
