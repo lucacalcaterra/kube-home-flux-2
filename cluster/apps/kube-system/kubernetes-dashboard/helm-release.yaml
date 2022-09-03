@@ -26,10 +26,10 @@ spec:
         hajimari.io/icon: "weather-sunset"
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       hosts:
-        - host: "kubernetes-dashboard.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              pathType: Prefix
+        - "kubernetes-dashboard.${SECRET_DOMAIN}"
+      # paths:
+      #   - path: /
+      #     pathType: Prefix
       tls:
         - hosts:
             - "kubernetes-dashboard.${SECRET_DOMAIN}"
