@@ -32,7 +32,11 @@ spec:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=https://$host"
         nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.networking.svc.cluster.local/oauth2/auth"
-        nginx.ingress.kubernetes.io/auth-response-headers: "authorization"
+        #nginx.ingress.kubernetes.io/auth-response-headers: "authorization"
+        nginx.ingress.kubernetes.io/auth-response-headers: x-auth-request-email, x-auth-request-user
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          auth_request_set $token $upstream_http_authorization;
+          proxy_set_header Authorization $token;
 
       hosts:
         - "kubernetes-dashboard.${SECRET_DOMAIN}"
