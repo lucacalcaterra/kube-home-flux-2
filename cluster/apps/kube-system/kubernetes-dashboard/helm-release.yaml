@@ -17,10 +17,10 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    protocolHttp: true
-    extraArgs:
-      #- --enable-skip-login
-      - --enable-insecure-login
+    #protocolHttp: true
+    #extraArgs:
+    #- --enable-skip-login
+    #- --enable-insecure-login
     ingress:
       enabled: true
       className: "nginx"
