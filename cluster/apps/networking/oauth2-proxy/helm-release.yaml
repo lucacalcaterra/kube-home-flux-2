@@ -53,7 +53,13 @@ spec:
       pass-access-token: true
       set-xauthrequest: true
       set-authorization-header: true
+      ssl-insecure-skip-verify: true
+
     env:
       extraEnv:
         - name: OAUTH2_PROXY_SET_AUTHORIZATION_HEADER
+          value: "true"
+        - name: OAUTH2_PROXY_PASS_AUTHORIZATION_HEADER
+          value: "true"
+        - name: OAUTH2_PROXY_SSL_INSECURE_SKIP_VERIFY
           value: "true"
