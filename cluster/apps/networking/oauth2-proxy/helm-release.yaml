@@ -52,6 +52,7 @@ spec:
       provider: "google"
       pass-access-token: true
       pass-authorization-header: true
+      skip-jwt-bearer-tokens: true
       set-xauthrequest: true
       set-authorization-header: true
       ssl-insecure-skip-verify: true
