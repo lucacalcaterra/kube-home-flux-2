@@ -50,6 +50,10 @@ spec:
       whitelist-domain: ".${SECRET_DOMAIN}"
       email-domain: "*"
       provider: "google"
+      auth-logging: true
+      redirect-url: "https://oauth2.${SECRET_DOMAIN}/oauth2/callback"
+      oidc-issuer-url: "https://accounts.google.com"
+      standard-logging: true
       pass-access-token: true
       pass-authorization-header: true
       skip-jwt-bearer-tokens: true
