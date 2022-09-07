@@ -50,15 +50,16 @@ spec:
       whitelist-domain: ".${SECRET_DOMAIN}"
       email-domain: "*"
       provider: "google"
-      scope: "email"
-      auth-logging: true
-      standard-logging: true
-      pass-access-token: true
-      pass-authorization-header: true
-      skip-jwt-bearer-tokens: true
-      set-xauthrequest: true
       set-authorization-header: true
-      ssl-insecure-skip-verify: true
+      # scope: "email"
+      # auth-logging: true
+      # standard-logging: true
+      # pass-access-token: true
+      # pass-authorization-header: true
+      # skip-jwt-bearer-tokens: true
+      # set-xauthrequest: true
+      # set-authorization-header: true
+      # ssl-insecure-skip-verify: true
 
     # env:
     #   extraEnv:
