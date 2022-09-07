@@ -35,8 +35,8 @@ spec:
         #nginx.ingress.kubernetes.io/backend-protocol: HTTPS
         #service.alpha.kubernetes.io/app-protocols: '{"https":"HTTPS"}'
         # Proxy Authentication header to Dashboard
-        # nginx.ingress.kubernetes.io/configuration-snippet: |
-        #   auth_request_set $token $upstream_http_authorization;
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          auth_request_set $token $upstream_http_authorization;
         #   proxy_set_header Authorization "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImdXSVlsY2VMamhjX3FJc0xtSlBBOGlhMGxkSWNWSmZYN0lIUnR3Y29KV1UifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTY2MjU1MTc2NSwiaWF0IjoxNjYyNTQ4MTY1LCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6Imt1YmUtc3lzdGVtIiwic2VydmljZWFjY291bnQiOnsibmFtZSI6Imt1YmVybmV0ZXMtZGFzaGJvYXJkIiwidWlkIjoiZDkxYzhjYjItMGZhNi00ODFlLWI0M2EtNDM1OTBlZWQ3Y2U0In19LCJuYmYiOjE2NjI1NDgxNjUsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlLXN5c3RlbTprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.0EV2kUYrHidCyNxxoC7qnY_SVBJfdT0x5M9yqHAr8Jpri8EjeqK6647vzYjqPjG6QOBj6KUoCdG3IQzFq175YQphLju92fWUiGPVgFdnTlo3Kq1w_b7kfW_QVULxUBFv72Z3tMagfEmAekJMIYMuNxkSLUAAaT21EuHvAhSaf_nCDQjFHaWNxJMNJ93ovDTgj3VFO9oGqDvHUci0Mwj-KBdjejksAf1ezH02Nwf-KquDMFpkPoOJrYFxoPxWAtFy2x4LU8R9VP8czyMshkbIGCTuRFEFetytbg5BcyxI_J21k84d0Tqe_biCe5A-KfckhQGZL7JONF59A2SdJGn_iA";
         #   proxy_pass_header Authorization;
       hosts:
