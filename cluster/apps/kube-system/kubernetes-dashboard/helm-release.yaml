@@ -31,7 +31,7 @@ spec:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=https://$host"
         nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.networking.svc.cluster.local/oauth2/auth"
-        #nginx.ingress.kubernetes.io/auth-response-headers: "Authorization"
+        nginx.ingress.kubernetes.io/auth-response-headers: "Authorization"
         #nginx.ingress.kubernetes.io/backend-protocol: HTTPS
         #service.alpha.kubernetes.io/app-protocols: '{"https":"HTTPS"}'
         # Proxy Authentication header to Dashboard
