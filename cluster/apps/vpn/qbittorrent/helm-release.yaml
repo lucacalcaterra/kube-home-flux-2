@@ -43,9 +43,9 @@ spec:
         annotations:
           prometheus.io/probe: "true"
           prometheus.io/protocol: tcp
-        #type: LoadBalancer
-        #externalIPs:
-        #  - ${CONFIG_LB_IP_QBITTORRENT}
+        type: LoadBalancer
+        externalIPs:
+          - ${CONFIG_LB_IP_QBITTORRENT}
         ports:
           bittorrent:
             port: 50413
