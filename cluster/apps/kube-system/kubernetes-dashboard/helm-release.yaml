@@ -28,10 +28,16 @@ spec:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         hajimari.io/enable: "true"
         hajimari.io/icon: "weather-sunset"
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start"
+        nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=https://$host$request_uri$is_args$args"
         nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.networking.svc.cluster.local/oauth2/auth"
+        nginx.ingress.kubernetes.io/auth-response-headers: "Authorization"
+        nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+        service.alpha.kubernetes.io/app-protocols: '{"https":"HTTPS"}'
+        # Proxy Authentication header to Dashboard
+        nginx.ingress.kubernetes.io/configuration-snippet: |
+          auth_request_set $token $upstream_http_authorization;
+          proxy_set_header Authorization $token;
         #nginx.ingress.kubernetes.io/auth-response-headers: "authorization"
         # nginx.ingress.kubernetes.io/auth-response-headers: x-auth-request-email, x-auth-request-user
         # nginx.ingress.kubernetes.io/configuration-snippet: |
