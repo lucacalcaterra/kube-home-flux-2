@@ -60,7 +60,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
-          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+          #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         hosts:
           - host: "qbittorrent.${SECRET_DOMAIN}"
             paths:
