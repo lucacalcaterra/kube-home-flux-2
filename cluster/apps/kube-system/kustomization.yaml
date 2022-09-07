@@ -5,7 +5,7 @@ resources:
   - namespace.yaml
   - cert-manager
   - intel-gpu-plugin
-  - kubernetes-dashboard
+  # - kubernetes-dashboard
   # - kured
   - metrics-server
   - reloader
