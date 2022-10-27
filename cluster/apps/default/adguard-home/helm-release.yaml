@@ -40,7 +40,7 @@ spec:
           hajimari.io/icon: "weather-sunset"
           nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
           nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=https://$host"
-          nginx.ingress.kubernetes.io/auth-url: "https://oauth2.${SECRET_DOMAIN}/oauth2/auth"
+          nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.networking.svc.cluster.local/oauth2/auth"
           #traefik.ingress.kubernetes.io/router.middlewares: networking-oauth@kubernetescrd
         hosts:
           - host: "adguard.${SECRET_DOMAIN}"
