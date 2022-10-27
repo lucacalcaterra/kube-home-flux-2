@@ -18,4 +18,4 @@ resources:
   - stakater.yaml
   - truecharts.yaml
   - velero.yaml
-  - weaveworks-kured.yaml
+  - kured.yaml

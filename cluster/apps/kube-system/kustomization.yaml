@@ -6,6 +6,6 @@ resources:
   - cert-manager
   - intel-gpu-plugin
   # - kubernetes-dashboard
-  # - kured
+  - kured
   - metrics-server
   - reloader
