@@ -31,6 +31,10 @@ spec:
       vpn:
         type: LoadBalancer
         loadBalancerIP: ${CONFIG_LB_IP_WG_EASY}
+    persistence:
+      config:
+        enabled: true
+        existingClaim: wg-easy-config
     ingress:
       main:
         enabled: true
