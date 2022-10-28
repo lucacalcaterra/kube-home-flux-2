@@ -17,6 +17,6 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    controller:
-      runOnControlPlane: true
+    #controller:
+    #  runOnControlPlane: true
     kubeletDir: "/var/lib/k0s/kubelet"
