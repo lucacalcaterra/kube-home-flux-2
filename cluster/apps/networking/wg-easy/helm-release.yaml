@@ -34,7 +34,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: wg-easy-config
+        #existingClaim: wg-easy-config
     ingress:
       main:
         enabled: true
