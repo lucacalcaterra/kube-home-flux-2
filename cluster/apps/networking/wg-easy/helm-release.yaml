@@ -34,7 +34,7 @@ spec:
     persistence:
       config:
         enabled: true
-        #existingClaim: wg-easy-config
+        existingClaim: wg-easy-config
     ingress:
       main:
         enabled: true
@@ -44,8 +44,8 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
           nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-          #nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=https://$host"
-          #nginx.ingress.kubernetes.io/auth-url: "https://oauth2.${SECRET_DOMAIN}/oauth2/auth"
+          nginx.ingress.kubernetes.io/auth-signin: "https://oauth2.${SECRET_DOMAIN}/oauth2/start?rd=https://$host"
+          nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.networking.svc.cluster.local/oauth2/auth"
         hosts:
           - host: "wg-easy.${SECRET_DOMAIN}"
             paths:
