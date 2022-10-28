@@ -19,6 +19,7 @@ metadata:
     #  - name: BasePath
     #    value: /mnt/dati/kubernetes/openebs
 provisioner: openebs.io/local
-reclaimPolicy: Retain
+# avoid ... use existingclaim ?
+#reclaimPolicy: Retain
 allowVolumeExpansion: false
 volumeBindingMode: WaitForFirstConsumer
