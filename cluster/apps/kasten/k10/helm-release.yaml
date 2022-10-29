@@ -22,7 +22,7 @@ spec:
     auth:
       basicAuth:
         enabled: true
-        htpasswd: ${BOOTSTRAP_K10_AUTH}
+        htpasswd: ${SECRET_K10_AUTH}
     global:
       persistence:
         size: 5Gi
