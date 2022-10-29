@@ -19,7 +19,7 @@ spec:
   values:
     global:
       persistence:
-      size: 5Gi
+        size: 5Gi
     grafana:
       enabled: false
     prometheus:
