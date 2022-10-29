@@ -17,8 +17,12 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    #externalGateway:
-    #  create: true
+    externalGateway:
+      create: true
+    auth:
+      basicAuth:
+        enabled: true
+        htpasswd: ${BOOTSTRAP_K10_AUTH}
     global:
       persistence:
         size: 5Gi
