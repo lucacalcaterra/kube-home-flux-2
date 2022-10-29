@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - default
   - flux-system
+  - kasten
   - kube-system
   - minio
   - networking
