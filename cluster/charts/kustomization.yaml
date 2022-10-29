@@ -9,6 +9,7 @@ resources:
   - hajimari.yaml
   - ingress-nginx.yaml
   - jetstack.yaml
+  - kasten.yaml
   - k8s-at-home.yaml
   - k8s-gateway.yaml
   - kubernetes-dashboard.yaml

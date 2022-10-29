@@ -8,5 +8,5 @@ resources:
   - minio
   - networking
   #- system-upgrade
-  - velero
+  #- velero
   - vpn
