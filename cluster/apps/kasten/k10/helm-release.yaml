@@ -28,4 +28,5 @@ spec:
     injectKanisterSidecar:
       enabled: true
       namespaceSelector:
-        matchLabels: "k10/injectKanisterSidecar=true"
+        matchLabels:
+          - "k10/injectKanisterSidecar=true"
