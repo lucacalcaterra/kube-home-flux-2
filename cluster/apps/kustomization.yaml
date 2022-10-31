@@ -4,10 +4,10 @@ kind: Kustomization
 resources:
   - default
   - flux-system
-  - kasten
+  #- kasten
   - kube-system
   - minio
   - networking
   #- system-upgrade
-  #- velero
+  - velero
   - vpn
