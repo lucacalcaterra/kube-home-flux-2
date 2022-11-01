@@ -6,8 +6,8 @@ resources:
   - flux-system
   - kasten
   - kube-system
-  - minio
+  # - minio
   - networking
-  #- system-upgrade
+  # - system-upgrade
   - velero
   - vpn
