@@ -23,9 +23,9 @@ spec:
       basicAuth:
         enabled: true
         htpasswd: ${SECRET_K10_AUTH}
-    global:
-      persistence:
-        size: 5Gi
+    #global:
+    #  persistence:
+    #    size: 5Gi
     grafana:
       enabled: false
     prometheus:
