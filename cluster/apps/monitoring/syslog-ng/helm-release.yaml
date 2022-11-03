@@ -16,3 +16,6 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 5m
+  values:
+    portal:
+      enabled: true
