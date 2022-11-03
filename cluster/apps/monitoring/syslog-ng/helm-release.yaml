@@ -17,5 +17,8 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    portal:
-      enabled: true
+    #portal:
+    #  enabled: true
+    service:
+      syslog-udp:
+        type: LoadBalancer
